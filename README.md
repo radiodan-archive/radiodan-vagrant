@@ -1,7 +1,7 @@
 
 Setting up a Radiodan install in VirtualBox using Vagrant
 
-- `$ cd cold_start_vagrant`
+- `$ cd radiodan_vagrant`
 - `$ vagrant up`
 Vagrant will automatically run the cold_start provisioning script from an adjacent directory called `../cold_start`
 
@@ -28,15 +28,3 @@ TODO:
 
 - Create a box from snapshot so that people don't have to do this
 - Document sharing and running the example app?
-
-
-Proper README:
-===
-
-Running in a virtual machine
-----------------------------
-
-You can run the cold_start packages and the example app in a Virtual Machine using [Vagrant](). 
-
-    $ vagrant box add wheezy https://dl.dropboxusercontent.com/u/86066173/debian-wheezy.box
-
