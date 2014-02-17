@@ -25,7 +25,6 @@ Vagrant.configure("2") do |config|
   # argument is a set of non-required options.
   config.vm.synced_folder "../cold_start", "/home/pi/cold_start"
   config.vm.synced_folder "../radiodan_example", "/home/vagrant/apps/radiodan_example_local"
-  config.vm.synced_folder "../status_led", "/home/vagrant/status_led"
 
   $script = <<SCRIPT
   echo "Backing up vagrant networking"
