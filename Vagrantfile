@@ -24,7 +24,9 @@ Vagrant.configure("2") do |config|
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
   config.vm.synced_folder "vendor/cold_start", "/home/pi/cold_start"
-  #config.vm.synced_folder "../radiodan_example", "/home/vagrant/apps/radiodan_example_local"
+  config.vm.synced_folder "vendor/radiodan_server", "/home/vagrant/apps/radiodan_server"
+
+  config.ssh.username = "pi"
 
   $script = <<SCRIPT
   echo "Backing up vagrant networking"
