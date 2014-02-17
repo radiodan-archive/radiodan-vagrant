@@ -7,11 +7,11 @@ Vagrant.configure("2") do |config|
   # please see the online documentation at vagrantup.com.
 
   # Every Vagrant virtual environment requires a box to build off of.
-  config.vm.box = "wheezy"
+  config.vm.box = "precise32"
 
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/86066173/debian-wheezy.box"
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
 
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine. In the example below,
@@ -23,8 +23,8 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "../cold_start", "/home/pi/cold_start"
-  config.vm.synced_folder "../radiodan_example", "/home/vagrant/apps/radiodan_example_local"
+  config.vm.synced_folder "vendor/cold_start", "/home/pi/cold_start"
+  #config.vm.synced_folder "../radiodan_example", "/home/vagrant/apps/radiodan_example_local"
 
   $script = <<SCRIPT
   echo "Backing up vagrant networking"
