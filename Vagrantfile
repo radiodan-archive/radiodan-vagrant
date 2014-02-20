@@ -23,19 +23,19 @@ Vagrant.configure("2") do |config|
   # the path on the host to the actual folder. The second argument is
   # the path on the guest to mount the folder. And the optional third
   # argument is a set of non-required options.
-  config.vm.synced_folder "vendor/cold_start", "/home/pi/cold_start"
+  config.vm.synced_folder "vendor/cold_start", "/home/vagrant/cold_start"
   config.vm.synced_folder "vendor/radiodan_server", "/home/vagrant/apps/radiodan_server"
 
-  config.ssh.username = "pi"
 
   $script = <<SCRIPT
   echo "Backing up vagrant networking"
   sudo cp /etc/network/interfaces /etc/network/interfaces.vagrant-backup
-  sudo /home/pi/cold_start/provision.sh --force-yes
+  sudo /home/vagrant/cold_start/provision.sh --force-yes
   echo "Reinstating vagrant networking"
   sudo cp /etc/network/interfaces.vagrant-backup /etc/network/interfaces
   sudo cp /usr/local/bin/try_adhoc_network /usr/local/bin/try_adhoc_network.vagrant-backup
   sudo cp /dev/null /usr/local/bin/try_adhoc_network
+  sudo usermod -G audio,sudo vagrant
 SCRIPT
 
   config.vm.provision "shell", inline: $script
