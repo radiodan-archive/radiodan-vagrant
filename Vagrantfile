@@ -9,6 +9,10 @@ Vagrant.configure("2") do |config|
   # Every Vagrant virtual environment requires a box to build off of.
   config.vm.box = "precise32"
 
+  config.vm.provider "virtualbox" do |v|
+    v.name = "vagrant_radiodan"
+  end
+
   # The url from where the 'config.vm.box' box will be fetched if it
   # doesn't already exist on the user's system.
   config.vm.box_url = "http://files.vagrantup.com/precise32.box"
@@ -35,7 +39,7 @@ Vagrant.configure("2") do |config|
   sudo cp /etc/network/interfaces.vagrant-backup /etc/network/interfaces
   sudo cp /usr/local/bin/try_adhoc_network /usr/local/bin/try_adhoc_network.vagrant-backup
   sudo cp /dev/null /usr/local/bin/try_adhoc_network
-  sudo usermod -G audio,sudo vagrant
+  sudo usermod -aG audio vagrant
 SCRIPT
 
   config.vm.provision "shell", inline: $script

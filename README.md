@@ -2,8 +2,8 @@
 Setting up a Radiodan install in VirtualBox using Vagrant
 
 - `$ cd radiodan_vagrant`
-- `$ ./install.sh`
-- `$ vagrant up`
+- `$ ./setup.sh`
+
 Vagrant will automatically run the `cold_start` provisioning script from `vendor/cold_start`
 
 You should now have a working debian with all the `cold_start` packages that
@@ -19,12 +19,11 @@ You can return to this state at any time by running
 
 To enable audio:
 
-    $ VBoxManage list runningvms
-      "cold_start_vagrant_default_1384715508" {fd7b2b44-465c-4109-9f36-86fe76291378}
     $ vagrant halt
-    $ VBoxManage modifyvm cold_start_vagrant_default_1384715508 --audio coreaudio --audiocontroller ac97
+    $ VBoxManage modifyvm vagrant_radiodan --audio coreaudio --audiocontroller ac97
     $ vagrant up
 
+Audio is enabled by default by running the setup.sh script.
 These instructions work on Mac OS X (10.8) because it uses coreaudio. Other
 systems might need different parameters. You can use the VirtualBox GUI Settings
 panel to select this manually.
